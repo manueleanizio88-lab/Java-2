@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Voltar</a>
+    <h1>{{product.title}}</h1>
+    <p>{{product.prince}} </p>
+
+    <a href="/">Voltar para a loja</a>
+
+{{#if product}}
+    <section>
+        <h1>{{product.title}}</h1>
+        <p><strong>Preço:</strong> R$ {{product.princ}}</p>
+        <p><strong>Vendido:</strong> {{product.sales}} vezes</p>
+        
+        <hr>
+        
+        <h3>Descrição</h3>
+        <p>{{product.description}}</p>
+        
+        <hr>
+        
+        <h3>Comentários dos Clientes</h3>
+        <ul>
+            {{#each product.reviews}}
+                <li>"{{this}}"</li>
+            {{else}}
+                <li>Ainda não há comentários para este produto.</li>
+            {{/each}}
+        </ul>
+    </section>
+{{else}}
+    <h1>Produto não encontrado!</h1>
+{{/if}}
+</body>
+</html>
